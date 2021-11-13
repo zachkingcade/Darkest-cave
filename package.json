@@ -1,0 +1,69 @@
+{
+  "name": "kt_game_starter",
+  "version": "0.2.0",
+  "description": "King's Tithe Game Starter for Phaser",
+  "author": "jeremyglebe",
+  "homepage": "https://github.com/Kings-Tithe/dicerole_engine#readme",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kings-Tithe/dicerole_engine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kings-Tithe/dicerole_engine/issues"
+  },
+  "keywords": [
+    "Phaser",
+    "Phaser 3",
+    "Phaser3",
+    "TypeScript",
+    "Webpack",
+    "dungeon",
+    "interaction",
+    "character",
+    "evolution",
+    "tabletop",
+    "roleplaying",
+    "engine",
+    "combat",
+    "grid",
+    "skills"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "copy-webpack-plugin": "^9.0.1",
+    "source-map-loader": "^3.0.0",
+    "ts-loader": "^9.2.5",
+    "typescript": "^4.3.5",
+    "webpack": "^5.48.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "@capacitor-community/electron": "^3.0.2",
+    "@capacitor/android": "^3.1.2",
+    "@capacitor/cli": "^3.1.2",
+    "@capacitor/core": "^3.1.2",
+    "@capacitor/filesystem": "^1.0.2",
+    "phaser": "^3.55.2"
+  },
+  "scripts": {
+    "serve": "webpack && webpack serve --mode development --open",
+    "serve:lan": "webpack && webpack serve --mode development --host 0.0.0.0",
+    "serve:prod": "webpack && webpack serve --mode production",
+    "build": "webpack --mode production",
+    "build:dev": "webpack",
+    "android:init": "npm run build:dev && npx cap copy android && cap add android",
+    "android": "npx cap copy android && npx cap open android",
+    "electron:init": "npm run build:dev && npx cap copy @capacitor-community/electron && cap add @capacitor-community/electron",
+    "electron": "npx cap copy @capacitor-community/electron && cap open @capacitor-community/electron",
+    "template:init": "git remote add template https://github.com/Kings-Tithe/kt_game_starter.git",
+    "template:update": "git fetch --all && git merge template/master --allow-unrelated-histories",
+    "update-minor": "apv update minor && git add . && git commit -a && git push origin main",
+    "update-major": "apv update major && git add . && git commit -a && git push origin main",
+    "update-patch": "apv update patch && git add . && git commit -a && git push origin main"
+  }
+}
