@@ -33,3 +33,49 @@ This is a very small game as well as an example of the project structure I would
 * Character Essentials might be stuff like: movement system, character physics, actions required to operate from day 1
 * Game Logic Essentials might be stuff like: win/loss conditions, very basic ui, level transitions
 
+## Scripts
+
+## Install
+
+### Commit Code
+```sh
+#version number is handled as
+Major_Update.Minor_Updates.Fixes
+# Commits the code to github and increments the version number
+npm run update-major
+npm run update-minor
+npm run update-patch
+```
+
+```sh
+# Installs node dependencies for this project
+npm install
+# Installs github dependencies for this project
+git submodule init
+git submodule update
+```
+
+### Develop
+
+```sh
+# Runs a developer server hosting the game
+npm run serve
+# Runs a developer server hosting the game, also accessible by other lan
+# devices such as mobile phones
+npm run serve:lan
+# Runs a local server hosting the game, in production mode, good for
+# testing file sizes
+npm run serve:prod
+```
+
+### Build
+
+```sh
+# Builds the project (in production mode) as a web page, found in the
+# www/ folder.
+npm run build
+# Builds the project in development mode, typically only needed if a unique
+# error occurs on a given platform and logs are needed
+npm run build:dev
+```
+
