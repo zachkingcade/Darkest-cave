@@ -62,8 +62,8 @@
     "electron": "npx cap copy @capacitor-community/electron && cap open @capacitor-community/electron",
     "template:init": "git remote add template https://github.com/Kings-Tithe/kt_game_starter.git",
     "template:update": "git fetch --all && git merge template/master --allow-unrelated-histories",
-    "update-minor": "apv update minor && git add . && git commit -a && git push origin main",
-    "update-major": "apv update major && git add . && git commit -a && git push origin main",
-    "update-patch": "apv update patch && git add . && git commit -a && git push origin main"
+    "update-minor": "git add . && git commit -a && git push origin main && apv update minor",
+    "update-major": "git add . && git commit -a && git push origin main && apv update major",
+    "update-patch": "git add . && git commit -a && git push origin main && apv update patch"
   }
 }
