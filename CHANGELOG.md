@@ -11,5 +11,8 @@
 * 2.1.0: Setup Home Screen, Level scenes, made test scene in tiled
 * 2.2.0: Got level properly loaded in, created, added Load assets scene
 
-## Version 3
-* 3.0.0: Created Player class, added Physics, Added walk animation
+## Version 3 Character Essentials
+* 3.0.0: Created Player class, added Physics, Added idle animation
+* 3.1.0: Added walk,jump,dash animations, added jump and walk mechanics and keys, dialed in gravity
+
+# Version 4 Game Logic Essentials

@@ -21,6 +21,13 @@ export class Level extends Phaser.Scene {
         this.physics.add.collider(this.player, this.layers[0]);
     }
 
+    update(){
+        this.player.update();
+    }
+
+    /**
+     * Is used to put together and store values of the level's tilemap
+     */
     constructTilemap(){
         this.map = this.make.tilemap({key: "testLevel"});
         let tileset = this.map.addTilesetImage("mossyFloatingPlatforms", "mossyFloating");
