@@ -17,3 +17,4 @@
 
 # Version 4 Game Logic Essentials
 * 4.0.0: Added collectable orbs and internal counter
+* 4.1.0: added orb animation, add portals and mechanics for them

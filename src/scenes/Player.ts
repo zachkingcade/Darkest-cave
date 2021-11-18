@@ -2,13 +2,11 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 
     scene: Phaser.Scene;
     controls: { [key: string]: Phaser.Input.Keyboard.Key };
-    orbsCollected: number;
 
     constructor(scene: Phaser.Scene, x: number, y: number, texture: string, frame?: number){
         super(scene,x,y,texture,frame);
         this.setScale(1.5);
         //store scene and add self to scene
-        this.orbsCollected = 0;
         this.scene = scene;
         this.scene.add.existing(this);
         this.scene.physics.add.existing(this);
@@ -55,7 +53,6 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
         this.controls["right"] = this.scene.input.keyboard.addKey("D");
         this.controls["left"] = this.scene.input.keyboard.addKey("A");
         this.controls["jump"] = this.scene.input.keyboard.addKey("SPACE");
-        this.controls["teleport"] = this.scene.input.keyboard.addKey("Q");
 
         this.controls["jump"].on("down", () => {
             console.log(this.body.blocked.down);
@@ -63,12 +60,6 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
                 this.setVelocityY(-2000);
             }
         }, this);
-
-        this.controls["teleport"].on("down", () => {
-            //this.x = this.scene.input.activePointer.x + this.scene.cameras.main.scrollX;
-            //this.y = this.scene.input.activePointer.y - this.scene.cameras.main.scrollY;
-            //this.scene.cameras.main.pan(this.x, this.y, 1000);
-        }, this)
     }
 
     /**

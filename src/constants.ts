@@ -1,7 +1,7 @@
 import { ScreenScale } from './utils/screen-scale';
 
 // Variables/objects related to game scaling
-const GAME_BASE_SIZE = 800;
+const GAME_BASE_SIZE = 1600;
 export const REAL_SZ = ScreenScale(GAME_BASE_SIZE);
 export const GAME_SZ = REAL_SZ.scaled;
 // Set some CSS properties, in case we need the game size in our styles
