@@ -6,6 +6,7 @@ export class Level extends Phaser.Scene {
     orbsCollected: number;
     map: Phaser.Tilemaps.Tilemap;
     layers: Phaser.Tilemaps.TilemapLayer[];
+    pointerLight: Phaser.GameObjects.Light;
 
     constructor(){
         super("Level");
@@ -18,13 +19,18 @@ export class Level extends Phaser.Scene {
         console.log("Scene: Level Started!");
         this.player = new Player(this,1000,8000,"playerIdle",0);
         this.constructTilemap();
+        //camera
         this.cameras.main.startFollow(this.player);
         this.cameras.main.setZoom(.7);
+        //general world setup
         this.physics.add.collider(this.player, this.layers[0]);
+        this.pointerLight = this.lights.addLight(1000, 9000, 1000).setColor(0xffffff).setIntensity(3.0);
     }
 
     update(){
         this.player.update();
+        this.pointerLight.x = this.input.activePointer.x + this.cameras.main.scrollX;
+        this.pointerLight.y = this.input.activePointer.y + this.cameras.main.scrollY;
     }
 
     /**
@@ -35,6 +41,9 @@ export class Level extends Phaser.Scene {
         let tileset = this.map.addTilesetImage("mossyFloatingPlatforms", "mossyFloating");
         this.layers.push(this.map.createLayer("collision", [tileset]));
         this.layers[0].setCollisionBetween(0,9999,true);
+        this.layers[0].setPipeline('Light2D');
+        this.player.setPipeline('Light2D');
+        this.lights.enable().setAmbientColor(0x000000);
 
         //handle objects
 
@@ -60,6 +69,7 @@ export class Level extends Phaser.Scene {
                 orb.setOrigin(0,1);
                 orb.setScale(.4);
                 orb.play("orb-loop");
+                orb.setPipeline('Light2D');
                 this.physics.add.overlap(orb, this.player, () => {
                     this.orbsCollected++;
                     console.log(`Orbs collected: ${this.orbsCollected}`);
