@@ -16,3 +16,4 @@
 * 3.1.0: Added walk,jump,dash animations, added jump and walk mechanics and keys, dialed in gravity
 
 # Version 4 Game Logic Essentials
+* 4.0.0: Added collectable orbs and internal counter

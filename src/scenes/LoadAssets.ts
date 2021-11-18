@@ -13,6 +13,7 @@ export class LoadAssets extends Phaser.Scene {
         this.load.spritesheet("player-walk", "./assets/images/characters/Mossy_Cavern/wizard_walk.png", {frameWidth:512, frameHeight: 512});
         this.load.spritesheet("player-jump", "./assets/images/characters/Mossy_Cavern/wizard_jump.png", {frameWidth:512, frameHeight: 512});
         this.load.spritesheet("player-dash", "./assets/images/characters/Mossy_Cavern/wizard_dash.png", {frameWidth:512, frameHeight: 512});
+        this.load.spritesheet("orb-loop", "./assets/images/items/orb-loop.png", {frameWidth:512, frameHeight: 512});
     }
 
     create(){
