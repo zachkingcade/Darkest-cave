@@ -5,7 +5,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 
     constructor(scene: Phaser.Scene, x: number, y: number, texture: string, frame?: number){
         super(scene,x,y,texture,frame);
-        this.setScale(1.5);
+        this.setScale(3.5);
         //store scene and add self to scene
         this.scene = scene;
         this.scene.add.existing(this);
@@ -57,7 +57,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
         this.controls["jump"].on("down", () => {
             console.log(this.body.blocked.down);
             if(this.body.blocked){
-                this.setVelocityY(-2000);
+                this.setVelocityY(-4000);
             }
         }, this);
     }
@@ -67,13 +67,13 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
      */
     update(){
         if(this.controls["right"].isDown && !this.controls["left"].isDown){
-            this.setVelocityX(800);
+            this.setVelocityX(1600);
             this.setFlipX(false);
             if(this.anims.currentAnim.key != "walk"){
                 this.play("walk");
             }
         } else if (!this.controls["right"].isDown && this.controls["left"].isDown){
-            this.setVelocityX(-800);
+            this.setVelocityX(-1600);
             this.setFlipX(true);
             if(this.anims.currentAnim.key != "walk"){
                 this.play("walk");
